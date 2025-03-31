@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>レビューページ - MOS模擬試験</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <h1>レビューページ</h1>
+            </div>
+            <div class="header-center">
+                <span id="timer">残り時間: --:--</span>
+            </div>
+            <div class="header-right">
+                <button onclick="window.location.href='index.html'">試験に戻る</button>
+            </div>
+        </header>
+
+        <table class="review-table">
+            <thead>
+                <tr>
+                    <th>問題番号</th>
+                    <th>要レビュー</th>
+                    <th>回答済み</th>
+                </tr>
+            </thead>
+            <tbody id="reviewTableBody">
+                <!-- JavaScriptで動的に生成 -->
+            </tbody>
+        </table>
+
+        <!-- 試験終了ボタンエリアを追加 -->
+        <div class="finish-area">
+            <button onclick="finishExam()" class="finish-button">試験終了</button>
+        </div>
+    </div>
+</body>
+</html> 

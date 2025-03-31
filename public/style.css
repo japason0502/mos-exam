@@ -1,0 +1,431 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ヘッダースタイル */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+}
+
+/* 問題ナビゲーション */
+.question-nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.question-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-size: 16px;
+    color: #666;
+}
+
+/* 現在の問題のスタイル */
+.question-btn.active {
+    background: #007f3d;
+    color: white;
+    font-weight: bold;
+    transform: scale(1.1);  /* 少し大きく */
+    box-shadow: 0 2px 8px rgba(0,123,61,0.3);  /* 影を強調 */
+    z-index: 1;  /* 他のボタンより前面に */
+}
+
+.question-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.question-btn.active:hover {
+    background-color: #006633;  /* アクティブ時のホバー色を変更 */
+}
+
+/* 要レビューアイコン（左上） */
+.question-btn.needs-review::before {
+    content: '★';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: #ff9800;
+    color: white;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 回答済みアイコン（右上） */
+.question-btn.completed::after {
+    content: '✓';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #4caf50;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 問題エリア */
+.question-area {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* コントロールエリア */
+.control-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.checkboxes {
+    display: flex;
+    gap: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #007f3d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #006633;
+}
+
+#reviewButton {
+    padding: 8px 16px;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 既存のスタイルに追加 */
+.select-screen {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.select-section {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.select-box {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.primary-button {
+    padding: 12px 40px;
+    font-size: 16px;
+    background-color: #007f3d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background-color: #006633;
+}
+
+/* 既存のスタイルに追加 */
+.admin-select {
+    padding: 8px;
+    margin: 5px;
+    min-width: 150px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.admin-textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.admin-button {
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #007f3d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-button.secondary {
+    background-color: #666;
+}
+
+.button-group {
+    margin: 10px 0;
+}
+
+.filter-section {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 4px;
+}
+
+.question-table-container {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* 既存のスタイルに追加 */
+.tab-buttons {
+    margin: 20px 0;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    background: #007f3d;
+    color: white;
+}
+
+.csv-editor {
+    margin: 20px 0;
+}
+
+.csv-textarea {
+    width: 100%;
+    font-family: monospace;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 既存のスタイルに追加 */
+.question-status {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.status-btn {
+    padding: 8px 16px;
+    border: 2px solid #007f3d;
+    border-radius: 4px;
+    background: white;
+    color: #007f3d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.status-btn:hover {
+    background: #e8f5e9;
+}
+
+.status-btn.active {
+    background: #007f3d;
+    color: white;
+}
+
+.review-btn.active {
+    background: #ff9800;
+    border-color: #ff9800;
+    color: white;
+}
+
+.answered-btn.active {
+    background: #4caf50;
+    border-color: #4caf50;
+    color: white;
+}
+
+.check-mark {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+}
+
+/* レビューページのスタイル */
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.review-table th {
+    background: #007f3d;
+    color: white;
+    padding: 12px 20px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.review-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.project-header {
+    background: #f5f5f5;
+    font-weight: bold;
+    padding: 15px 20px;
+    color: #333;
+    border-top: 2px solid #007f3d;
+}
+
+.question-cell {
+    width: 120px;
+}
+
+.status-cell {
+    width: 150px;
+}
+
+.question-link {
+    color: #007f3d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.question-link:hover {
+    text-decoration: underline;
+}
+
+/* ステータスラベル */
+.status-label {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-label.review {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-label.completed {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* プロジェクト区切り */
+.project-separator {
+    border-bottom: 1px solid #ddd;
+}
+
+/* タイマーオプションのスタイル */
+.timer-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.timer-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* 試験終了エリアのスタイル */
+.finish-area {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.finish-button {
+    padding: 12px 24px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.finish-button:hover {
+    background-color: #c82333;
+} 

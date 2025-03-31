@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>MOS Excel模擬試験</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダー -->
+        <header>
+            <div class="header-left">
+                <span id="projectNumber">プロジェクト 1/6</span>
+            </div>
+            <div class="header-center">
+                <span id="timer">残り時間: 50:00</span>
+            </div>
+            <div class="header-right">
+                <button id="reviewButton" onclick="window.location.href='review.html'">レビューページ</button>
+            </div>
+        </header>
+
+        <!-- 問題ナビゲーション -->
+        <div class="question-nav">
+            <button class="question-btn">1</button>
+            <button class="question-btn">2</button>
+            <button class="question-btn">3</button>
+            <button class="question-btn">4</button>
+            <button class="question-btn">5</button>
+            <button class="question-btn">6</button>
+            <button class="question-btn">7</button>
+        </div>
+
+        <!-- 問題文エリア -->
+        <div class="question-area">
+            <p id="questionText">あなたは工場の測定値で生産台数を記録しています。</p>
+        </div>
+
+        <!-- コントロールエリア -->
+        <div class="control-area">
+            <div id="questionStatus" class="question-status">
+                <button class="status-btn review-btn" onclick="toggleReviewStatus(currentProject, currentQuestion)">
+                    あとで見直す
+                </button>
+                <button class="status-btn answered-btn" onclick="toggleAnsweredStatus(currentProject, currentQuestion)">
+                    回答済み
+                </button>
+            </div>
+            <div class="buttons">
+                <button onclick="moveToNextProject()">次のプロジェクト</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

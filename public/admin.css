@@ -1,0 +1,50 @@
+.csv-table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.csv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.csv-table th,
+.csv-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.csv-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+.csv-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.csv-table tr:hover {
+    background-color: #f0f0f0;
+}
+
+.csv-select {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.csv-textarea {
+    width: 100%;
+    min-height: 300px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    font-size: 18px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+} 
