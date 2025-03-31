@@ -345,26 +345,20 @@ window.addEventListener('beforeunload', () => {
 });
 
 function finishExam() {
-    if (confirm('試験を終了してもよろしいですか？')) {
+    if (confirm('試験を終了しますか？\n\n※ 終了後は問題の回答状況は保持されます。')) {
         // タイマーを停止
         if (timerInterval) {
             clearInterval(timerInterval);
         }
         
-        // タイマー表示を非表示
-        const timerElement = document.getElementById('timer');
-        if (timerElement) {
-            timerElement.style.display = 'none';
+        // 試験終了ボタンを非表示にし、最初の画面に戻るボタンを表示
+        const finishArea = document.querySelector('.finish-area');
+        if (finishArea) {
+            finishArea.innerHTML = `
+                <button onclick="window.location.href='index.html'" class="finish-button">
+                    最初の画面に戻る
+                </button>
+            `;
         }
-        
-        // 終了メッセージを表示
-        alert('Excelファイルから採点してください');
-        
-        // タイマーの状態をリセット
-        localStorage.removeItem('timeLeft');
-        
-        // 必要に応じて他の状態もリセット
-        // localStorage.removeItem('mosExamState');
-        // など
     }
 } 
