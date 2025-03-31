@@ -17,24 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedApp = parseInt(localStorage.getItem('selectedApp')) || 1;
     selectedExam = parseInt(localStorage.getItem('selectedExam')) || 1;
 
-    // タイマー要素があれば初期化（index.htmlとreview.htmlの両方で動作）
-    const timerElement = document.getElementById('timer');
-    if (timerElement) {
+    // 問題表示画面の場合のみ初期化
+    if (document.getElementById('questionText')) {
+        restoreState();
         initializeTimer();
+        initializeQuestionNav();
+        updateQuestionDisplay();
     }
     
     // レビューページの場合
     if (window.location.pathname.endsWith('review.html')) {
         initializeReviewPage();
-    } else {
-        restoreState();
-        initializeTimer();
-        initializeQuestionNav();
-        if (document.getElementById('needsReview')) {
-            restoreCheckboxStates();
-        }
-        // 初期問題を表示
-        updateQuestionDisplay();
     }
 });
 
@@ -273,13 +266,25 @@ function initializeReviewPage() {
             tableBody.appendChild(row);
         }
     }
+
+    // タイマー表示を更新
+    const noTimer = localStorage.getItem('noTimer') === 'true';
+    const timerElement = document.getElementById('timer');
+    if (timerElement) {
+        if (noTimer) {
+            timerElement.style.display = 'none';
+        } else {
+            timeLeft = parseInt(localStorage.getItem('timeLeft')) || 3000;
+            updateTimerDisplay();
+        }
+    }
 }
 
 function goToQuestion(project, question) {
     currentProject = project;
     currentQuestion = question;
     saveState();
-    window.location.href = 'index.html';
+    window.location.href = 'select.html';
 }
 
 function updateReviewStatus(project, question, status) {

@@ -21,6 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('noTimer', noTimer.checked);
         
         // メイン画面へ遷移
-        window.location.href = 'index.html';
+        window.location.href = 'select.html';
     });
 }); 
